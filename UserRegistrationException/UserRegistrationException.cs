@@ -45,5 +45,29 @@ namespace UserRegistrationException
             }
             
         }
+        public string ValidLastName()
+        {
+            string lastname = "^[A-Z]{1}[a-zA-Z]{2}$";
+            Regex regex = new Regex(lastname);
+            try
+            {
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+
+        }
     }
 }
