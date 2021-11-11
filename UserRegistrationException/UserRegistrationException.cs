@@ -69,5 +69,52 @@ namespace UserRegistrationException
             }
 
         }
+        public string EmailIdValid()
+        {
+            string emailid = "^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$";
+            Regex regex = new Regex(emailid);
+            try
+            {
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+        }
+        public string MobileNumValid()
+        {
+            //Regular expression of mobile number
+            string number = "^[0-9]{1,2}[ ]{1}[0-9]{10}$";
+            Regex regex = new Regex(message);
+            try
+            {
+                //if condition for matching pattern
+                //if condition is true then if block will execute
+                if (regex.IsMatch(message))
+                {
+                    return "valid";
+                }
+                //else condition for if condition is false then else block will execute
+                else
+                {
+                    return "invalid";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                throw new CustomException(CustomException.ExceptionType.Argument_Null_Exception, "invalid");
+            }
+        }
     }
 }
