@@ -73,5 +73,21 @@ namespace ExceptionTest
             //comparing actual and expected value
             Assert.AreEqual(expected, actual);
         }
+        public void ValidPasswordOfUser()
+        {
+            //AAA method
+            //Arrange
+            string message = " ";
+            string expected = "invalid";
+            //creating object of moodanalyzer class and passing message
+            UserException exception = new UserException(message);
+
+            //Act
+            string actual = exception.ValidPassword();
+
+            //Assert
+            //comparing actual and expected value
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
